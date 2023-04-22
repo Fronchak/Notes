@@ -1,0 +1,8 @@
+<a href="/">Voltar</a>
+<h1>{{ title }}</h1>
+<p>{{ description }}</p>
+<a href="/notes/form/{{ id }}" class="btn btn-primary">Edit</a>
+<form method="post" action="/notes/delete" class="d-inline">
+    <input type="hidden" name="id" value="{{ id }}" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>

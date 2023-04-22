@@ -1,0 +1,26 @@
+<a href="/" >Voltar</a>
+<h2 class="mt-2">{{ formTitle }}</h2>
+<form action="{{ actionURL }}" method="post">
+    <div class="mb-3">
+        <label for="title" class="form-label">Título:</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="title" 
+            name="title" 
+            placeholder="What do you need to do?" 
+            value="{{ title }}"    
+        />
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea 
+            id="description" 
+            name="description" 
+            class="form-control" 
+            rows="2" 
+            placeholder="Describe your task"    
+        >{{ description }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" >{{ buttonLabel }}</button>
+</form>

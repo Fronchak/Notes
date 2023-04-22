@@ -1,0 +1,30 @@
+<h1>Suas notas:</h1>
+{{#if isEmpty}}
+    <h4>You don't have any tasks, <a href="/notes/form">click here</a> to add one.</h4>
+{{else}}
+<h3>You have {{ notes.length }} task(s) to do</h3>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {{#each notes}}
+            <tr>
+                <th scope="row" class="index-column">{{ this.index }}</th>
+                <td class="title-column"><a href="/notes/{{ this.id }}">{{ this.title }}</a></td>
+                <td class="actions-columns">
+                    <a href="/notes/form/{{ this.id }}" class="btn btn-primary">Edit</a>
+                    <form action="notes/delete" method="POST" class="d-inline">
+                        <input type="hidden" name="id" value="{{ this.id }}" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/if}}
